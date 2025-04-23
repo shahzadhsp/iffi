@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634094212760",
+    "project_id": "iffi-5f9f1",
+    "storage_bucket": "iffi-5f9f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634094212760:android:de42ff24db8ec6d8ae22ed",
+        "android_client_info": {
+          "package_name": "com.example.iffi_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWbXdbXBqqBCjqA6gwmilSDKYf55JPTVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
