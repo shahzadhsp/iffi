@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:iffi_store/presentation/ui/sign_up/sign_up_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    
-  runApp(const MyApp());
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -29,23 +28,11 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
-          home: SignUpScreen(),
+          home: SignupScreen(),
         );
       },
     );
   }
 
 }
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
 
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar:AppBar(title: Text('start from app'),) ,);
-  }
-}

@@ -41,6 +41,7 @@ dependencies:
   get: any
   go_router: any
   flutter_screenutil: any
+  fluttertoast: ^8.2.12
 
 dev_dependencies:
   flutter_test:
