@@ -1,7 +1,9 @@
 // login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:iffi_store/data/services/firebase_auth_services.dart';
+import 'package:iffi_store/presentation/admin_panel/view/admin_panel.dart';
 import 'package:iffi_store/presentation/ui/sign_up/home/home_screen.dart';
+import 'package:iffi_store/presentation/ui/sign_up/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -36,10 +38,28 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() => _isLoading = false);
 
       if (user != null) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Login Successful')));
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+        if (_authService.isAdmin(user)) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Welcome Admin')));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AdminPanel()),
+          );
+        } else {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Login Successful')));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
+          // Navigator.pushReplacementNamed(context, '/user');
+        }
       }
     }
   }
@@ -86,7 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/signup');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupScreen()),
+                  );
                 },
                 child: const Text('Don\'t have an account? Sign Up'),
               ),

@@ -1,6 +1,7 @@
 // home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:iffi_store/data/services/firebase_auth_services.dart';
+import 'package:iffi_store/presentation/ui/sign_up/login/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final AuthService _authService = AuthService();
@@ -17,13 +18,17 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.logout),
             onPressed: () async {
               await _authService.signOut();
-              Navigator.pushReplacementNamed(context, '/login');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
             },
           ),
         ],
       ),
       body: const Center(
         child: Text('Welcome!', style: TextStyle(fontSize: 24)),
-    ));
+      ),
+    );
   }
 }
