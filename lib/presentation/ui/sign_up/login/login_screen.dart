@@ -42,10 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text('Welcome Admin')));
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
-          );
+         
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AdminPanel()),
