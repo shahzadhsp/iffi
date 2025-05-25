@@ -1,11 +1,9 @@
-// home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:iffi_store/data/services/firebase_auth_services.dart';
 import 'package:iffi_store/presentation/ui/sign_up/login/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final AuthService _authService = AuthService();
-
   HomeScreen({super.key});
 
   @override
