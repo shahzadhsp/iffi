@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iffi_store/domain/repositories/auth_repository.dart';
+import 'package:iffi_store/presentation/ui/sign_up/home/home_screen.dart';
 
 class SignupController extends GetxController {
   final AuthRepository _authRepository;
@@ -25,14 +28,17 @@ class SignupController extends GetxController {
     }
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<void> signInWithGoogle(BuildContext context) async {
     try {
       isLoading(true);
       errorMessage('');
 
       await _authRepository.signInWithGoogle();
 
-      Get.offAllNamed('/home'); // Navigate to home after successful sign in
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
     } catch (e) {
       errorMessage(e.toString());
       Get.snackbar('Error', e.toString(), snackPosition: SnackPosition.BOTTOM);

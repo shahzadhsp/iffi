@@ -184,7 +184,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   SizedBox(height: 20.h),
                   GestureDetector(
-                    onTap: controller.signInWithGoogle,
+                    onTap: () {
+                      controller.signInWithGoogle(context);
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 6.h),
                       decoration: BoxDecoration(

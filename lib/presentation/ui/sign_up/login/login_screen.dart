@@ -7,7 +7,6 @@ import 'package:iffi_store/res/app_colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -90,6 +89,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
+                  SizedBox(height: 20.h),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Text('Forgot Password?'),
+                    ),
+                  ),
                   SizedBox(height: 28.h),
                   Obx(
                     () =>
@@ -124,7 +131,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 20.h),
                   GestureDetector(
-                    onTap: controller.signInWithGoogle,
+                    onTap: () {
+                      controller.signInWithGoogle(context);
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 6.h),
                       decoration: BoxDecoration(

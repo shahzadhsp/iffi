@@ -100,11 +100,12 @@ TextTheme textTheme = TextTheme(
     letterSpacing: 0.5,
     height: 1.45,
   ),
-);
+).apply(fontFamily: 'Roboto');
 
 ThemeData appTheme = ThemeData(
   textTheme: textTheme,
   // You can add other theme customizations here
   colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
   useMaterial3: true,
+  fontFamily: 'Roboto',
 );

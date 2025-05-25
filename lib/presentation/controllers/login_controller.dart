@@ -36,14 +36,17 @@ class LoginController extends GetxController {
     }
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<void> signInWithGoogle(BuildContext context) async {
     try {
       isLoading(true);
 
       final user = await _authRepository.signInWithGoogle();
 
       if (user != null) {
-        Get.offAll(() => HomeScreen());
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
         Get.snackbar('Success', 'Login Successful');
       }
     } catch (e) {
